@@ -1,6 +1,6 @@
 # Rom repo init
 
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs
+repo init -u https://github.com/crdroidandroid/android.git -b 16.0 --git-lfs --no-clone-bundle
 
 echo "-----------------------------"
 echo "Repo init cloned successfully"
@@ -28,7 +28,7 @@ echo "------------------------"
 
 # Dt
 
-git clone https://github.com/Never-Alive/device_xiaomi_haydn -b 16 device/xiaomi/haydn
+git clone https://github.com/Never-Alive/device_xiaomi_haydn -b crdroid device/xiaomi/haydn
 
 echo "---------------------"
 echo "Tress clone completed"
@@ -61,17 +61,9 @@ echo "----------------------------"
 echo "Rom signed with private keys"
 echo "----------------------------"
 
-# lunch
+# brunch
 
-lunch lineage_haydn-bp2a-userdebug
-
-echo "----------"
-echo "Lunch done"
-echo "----------"
-
-# finalk command
-
-mka bacon
+brunch haydn
 
 echo "--------------"
 echo "Rom build done"
