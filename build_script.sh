@@ -1,6 +1,6 @@
 # Rom repo init
 
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs
+repo init -u https://github.com/AxionAOSP/android.git -b lineage-23.0 --git-lfs
 
 echo "-----------------------------"
 echo "Repo init cloned successfully"
@@ -28,7 +28,7 @@ echo "------------------------"
 
 # Dt
 
-git clone https://github.com/Never-Alive/device_xiaomi_haydn -b 16 device/xiaomi/haydn
+git clone https://github.com/Never-Alive/device_xiaomi_haydn -b axion device/xiaomi/haydn
 
 echo "---------------------"
 echo "Tress clone completed"
@@ -47,23 +47,23 @@ rm -rf hardware/lineage/compat
 
 git clone https://github.com/Never-Alive/android_hardware_lineage_compat -b 23 hardware/lineage/compat
 
-echo "-----------------------------"
+echo "------------------------------------------"
 echo "hardware/lineage/conpat is cloned with fix"
-echo "-----------------------------"
+echo "-----------------------++-----------------"
 
 . b*/e*
 
 # signing script
 
-curl -sSf https://raw.githubusercontent.com/Trijal08/crDroid-build-signed-script-auto/main/create-signed-env.sh | bash
+gk -s
 
 echo "----------------------------"
-echo "Rom signed with private keys"
+echo "Rom signed"
 echo "----------------------------"
 
 # lunch
 
-lunch lineage_haydn-bp2a-userdebug
+axion haydn va
 
 echo "----------"
 echo "Lunch done"
@@ -71,7 +71,7 @@ echo "----------"
 
 # finalk command
 
-mka bacon
+ax -br
 
 echo "--------------"
 echo "Rom build done"
