@@ -5,4 +5,3 @@
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Never-Alive/crave/main/crave_install.sh | bash
-# crave
