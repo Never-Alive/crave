@@ -26,7 +26,7 @@ error_exit() {
 
 echo -e "${BLUE}"
 echo "===================================================="
-echo "       🔧 Crave Setuper - Ubuntu via Termux         "
+echo "       🔧 Crave Setuper - debian via Termux         "
 echo "===================================================="
 echo -e "${NC}"
 
@@ -46,23 +46,23 @@ pkg install -y proot-distro > /dev/null 2>&1 || error_exit "Failed to install pr
 success_msg "proot-distro installed."
 
 
-if proot-distro list | grep -q "ubuntu"; then
-    echo -e "${YELLOW}[⚠] Existing Ubuntu container detected. Removing...${NC}"
-    proot-distro remove ubuntu > /dev/null 2>&1 || {
-        echo -e "${RED}[✖] Failed to remove existing Ubuntu container.${NC}"
+if proot-distro list | grep -q "debian"; then
+    echo -e "${YELLOW}[⚠] Existing debian container detected. Removing...${NC}"
+    proot-distro remove debian > /dev/null 2>&1 || {
+        echo -e "${RED}[✖] Failed to remove existing debian container.${NC}"
         exit 1
     }
-    echo -e "${GREEN}[✔] Old Ubuntu container removed.${NC}"
+    echo -e "${GREEN}[✔] Old debian container removed.${NC}"
 fi
 
-print_step "Installing Ubuntu container (this may take some time)..."
-proot-distro install ubuntu > /dev/null 2>&1 || error_exit "Failed to install Ubuntu"
-success_msg "Ubuntu container installed."
+print_step "Installing debian container (this may take some time)..."
+proot-distro install debian > /dev/null 2>&1 || error_exit "Failed to install debian"
+success_msg "debian container installed."
 
-print_step "Setting up Crave inside Ubuntu..."
+print_step "Setting up Crave inside debian..."
 
 
-proot-distro login ubuntu < /dev/null 2>/dev/null << EOF
+proot-distro login debian < /dev/null 2>/dev/null << EOF
 
 GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
@@ -91,15 +91,15 @@ chmod +x crave && mv crave /usr/local/bin > /dev/null 2>&1 || {
   exit 1
 }
 
-echo -e "\${GREEN}[✔] Crave installed successfully inside Ubuntu.\${NC}"
+echo -e "\${GREEN}[✔] Crave installed successfully inside debian.\${NC}"
 EOF
 
 
 echo -e "${GREEN}"
 echo "===================================================="
-echo " ✅ Crave is now installed inside your Ubuntu container!"
+echo " ✅ Crave is now installed inside your debian container!"
 echo " 🔍 To use Crave:"
-echo "     → Run:  proot-distro login ubuntu"
+echo "     → Run:  proot-distro login debian"
 echo "     → Then: Download crave.conf file"
 echo "     → Then: type crave -n devspace and enter"
 echo "===================================================="
