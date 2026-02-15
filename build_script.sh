@@ -47,10 +47,13 @@ echo "----------------------------"
 echo "Rom signed with private keys"
 echo "----------------------------"
 
+rm -rf device/xiaomi/sm8350-common
+git clone https://github.com/Never-Alive/device_xiaomi_sm8350-common -b bla device/xiaomi/sm8350-common
+
 # lunch
 
-brunch haydn
-
+lunch lineage_haydn-bp4a-user
+mka bacon
 echo "----------"
 echo "Brunch done"
 echo "----------"
